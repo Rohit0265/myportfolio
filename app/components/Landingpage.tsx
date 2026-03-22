@@ -7,7 +7,7 @@ const Mylandpage = () => {
   const containerRef = useRef(null)
 
   return (
-    <div className="w-full min-h-screen bg-[#0F0F0F] overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#0F0F0F] overflow-y-hidden">
 
       {/* NAME */}
       <motion.div
