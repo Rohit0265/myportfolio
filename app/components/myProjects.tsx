@@ -224,71 +224,64 @@ const Myprojects = () => {
                         muted
                         loop />
                     </div>
-                  </div></>
+                  </div>
+                  </>
               ) : (
-                <div className='flex flex-row'>
+<div className="flex flex-col lg:flex-row">
 
-                  {/* VIDEO SIDE */}
-                  <div className="relative w-full lg:w-1/2 flex justify-center items-center">
+  {/* VIDEO SIDE */}
+  <div className="relative w-full lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
+    
+    <img
+      className="w-[95%] sm:w-[90%] md:w-[80%] rounded-xl blur-[5px]"
+      src={item.image}
+      alt=""
+    />
 
-                    <img
-                      className="w-[90%] md:w-[80%] rounded-xl blur-[5px]"
-                      src={item.image}
-                      alt=""
-                    />
+    <div className="absolute w-[85%] sm:w-[80%] md:w-[70%]">
+      <video
+        className="w-full border rounded-md"
+        src={item.video}
+        autoPlay
+        playsInline
+        muted
+        loop
+      />
+    </div>
 
-                    <div className="absolute w-[80%] md:w-[70%]">
+  </div>
 
-                      <video
-                        className="w-full border rounded-md scroll-video"
-                        src={item.video}
-                        autoPlay
-                        playsInline
-                        muted
-                        loop
-                      />
+  {/* TEXT SIDE */}
+  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-4 sm:px-6 lg:pl-20 text-center lg:text-left">
 
-                    </div>
+    <div>
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
+        {item.title}
+      </h1>
 
-                  </div>
+      <p className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-400 mb-8">
+        {item.description}
+      </p>
+    </div>
 
+    {/* BUTTON */}
+    <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
 
-                  {/* TEXT SIDE */}
-                  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-6 lg:pl-20">
+      <a
+        href={item.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-3 bg-gray-900 border border-white rounded-xl px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-700 transition"
+      >
+        <img src="/github.svg" className="w-5 h-5 sm:w-6 sm:h-6 invert" />
+        View GitHub
+      </a>
 
-                    <div>
+    </div>
 
-                      <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6">
-                        {item.title}
-                      </h1>
+  </div>
 
-                      <p className="text-base md:text-lg lg:text-2xl text-gray-400 mb-8">
-                        {item.description}
-                      </p>
-
-                    </div>
-
-
-                    {/* BUTTON */}
-                    <div className="flex flex-wrap gap-4 items-center">
-
-                      <a
-                        href={item.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 bg-gray-900 border border-white rounded-xl px-5 py-3 hover:bg-gray-700 transition"
-                      >
-                        <img src="/github.svg" className="w-6 h-6 invert" />
-                        View GitHub
-                      </a>
-
-
-
-                    </div>
-
-                  </div>
-
-                </div>
+</div>
               )}
               <br />
             </div>
