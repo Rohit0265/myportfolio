@@ -252,7 +252,7 @@ const Myprojects = () => {
   </div>
 
   {/* TEXT SIDE */}
-  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-4 sm:px-6 lg:pl-20 text-center lg:text-left">
+  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-4 sm:px-6 lg:pl-20 text-left lg:text-left">
 
     <div>
       <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
