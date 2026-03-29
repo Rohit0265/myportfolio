@@ -27,5 +27,5 @@ Tools: Git, GitHub, VS Code
 
 📬 Contact Me
 📧 Email: rohitmathur05458@gmail.com
-💼 LinkedIn: [your-linkedin](https://www.linkedin.com/in/rohit-mathur-9a80b2296)
+💼 LinkedIn: https://www.linkedin.com/in/rohit-mathur-9a80b2296
 ⭐ Show Your Support
