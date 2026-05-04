@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Eye } from 'lucide-react'
 
 
 
@@ -226,6 +227,11 @@ const Myprojects = () => {
                         className="w-full transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                        <span className="bg-black/40 backdrop-blur-sm text-white/80 px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] border border-white/10 shadow-xl">
+                          Hover Me
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </>
@@ -249,6 +255,11 @@ const Myprojects = () => {
                         className="w-full transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                        <span className="bg-black/40 backdrop-blur-sm text-white/80 px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] border border-white/10 shadow-xl">
+                          Hover Me
+                        </span>
+                      </div>
                     </div>
 
                   </div>
