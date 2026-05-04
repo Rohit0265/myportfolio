@@ -83,7 +83,7 @@ const Myprojects = () => {
   useGSAP(() => {
 
 
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < 1024) return;
     const panels = gsap.utils.toArray<HTMLElement>(".panel");
 
 
@@ -224,10 +224,19 @@ const Myprojects = () => {
                         onMouseEnter={()=>{hoverMe(item.video)}} 
                         onMouseLeave={() => setIsHovered(false)}
                         src={item.thumb} 
-                        className="w-full transition-transform duration-500 group-hover:scale-110" 
+                        className="w-full hidden lg:block transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
+                      {/* Mobile Video */}
+                      <video
+                        src={item.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full block lg:hidden"
+                      />
+                      <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
                         <div className="flex flex-col items-center gap-2 animate-float">
                           <div className="bg-white/10 backdrop-blur-xl p-3 rounded-full border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                             <Eye className="w-5 h-5 text-white animate-pulse" />
@@ -257,10 +266,19 @@ const Myprojects = () => {
                         onMouseEnter={()=>{hoverMe(item.video)}} 
                         onMouseLeave={() => setIsHovered(false)}
                         src={item.thumb} 
-                        className="w-full transition-transform duration-500 group-hover:scale-110" 
+                        className="w-full hidden lg:block transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
+                      {/* Mobile Video */}
+                      <video
+                        src={item.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full block lg:hidden"
+                      />
+                      <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
                         <div className="flex flex-col items-center gap-2 animate-float">
                           <div className="bg-white/10 backdrop-blur-xl p-3 rounded-full border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                             <Eye className="w-5 h-5 text-white animate-pulse" />
