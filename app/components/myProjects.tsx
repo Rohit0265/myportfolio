@@ -255,10 +255,15 @@ const Myprojects = () => {
                         className="w-full transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-                        <span className="bg-black/40 backdrop-blur-sm text-white/80 px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] border border-white/10 shadow-xl">
-                          Hover Me
-                        </span>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
+                        <div className="flex flex-col items-center gap-2 animate-float">
+                          <div className="bg-white/10 backdrop-blur-xl p-3 rounded-full border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                            <Eye className="w-5 h-5 text-white animate-pulse" />
+                          </div>
+                          <span className="bg-black/40 backdrop-blur-md text-white/90 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] border border-white/10 shadow-2xl">
+                            Hover Me
+                          </span>
+                        </div>
                       </div>
                     </div>
 
