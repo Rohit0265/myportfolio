@@ -83,14 +83,14 @@ const Myprojects = () => {
 
 
     if (window.innerWidth < 768) return;
-    const panels = gsap.utils.toArray(".panel");
+    const panels = gsap.utils.toArray<HTMLElement>(".panel");
 
 
-    panels.forEach((panel, i) => {
+    panels.forEach((panel) => {
       gsap.set(panel, { willChange: "transform, opacity" });
 
       gsap.fromTo(
-        panel as gsap.TweenTarget, {
+        panel, {
         scale: 1, opacity: 1
       },
         {
@@ -118,7 +118,7 @@ const Myprojects = () => {
       scrollTrigger: {
         trigger: stackContainer,
         start: "top top",
-        end: () => "+=" + stackContainer.offsetHeight,
+        end: () => "+=" + (stackContainer as HTMLElement).offsetHeight,
         scrub: true,
         pin: text,
         pinSpacing: false,
