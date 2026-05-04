@@ -1,25 +1,34 @@
-// @ts-nocheck
 "use client"
-import React, { useRef } from 'react'
-
+import React, { useRef, useState } from 'react'
+import Hover from './Hover'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import Image from 'next/image'
-import { div } from 'framer-motion/client'
 import Link from 'next/link'
 
 
 
-const data = [
+interface Project {
+  title: string;
+  description: string;
+  github: string;
+  live: string;
+  image: string;
+  thumb: string;
+  video: string;
+}
+
+const data: Project[] = [
   {
     title: "1. YOOM - Zoom Like Meeting Platform",
     description: "This project is a fully functional Zoom Clone that enables users to create, join, and manage video meetings in real time. It features secure authentication, instant meeting links, and smooth video streaming powered by Stream’s real-time infrastructure.",
     github: "https://github.com/Rohit0265/meeting",
     live: "https://meeting-two-lac.vercel.app/",
     image: "/photo2.jpg",
-    video: "/p2.webm",
+    thumb: "/p2.png",
+    video: "/p2.webm"  
 
   }, {
     title: "2. Full Stack Ecommerce Web Application",
@@ -27,7 +36,8 @@ const data = [
     github: "https://github.com/Rohit0265/Full-Stack-E-Commerce-Platform",
     live: "https://full-stack-e-commerce-platform-one.vercel.app/",
     image: "/be.jpg",
-    video: "/Ecomm.webm",
+    thumb: "/Ecomm.png",
+    video: "/Ecomm.webm"  
 
   }, {
     title: "3. Edemy - Online Learning Platform",
@@ -35,7 +45,8 @@ const data = [
     github: "https://github.com/Rohit0265/Edemy",
     live: "https://edemy-one.vercel.app/",
     image: "/2.webp",
-    video: "/Edemy.webm",
+    thumb: "/Edemy.png",
+    video :"/Edemy.webm"
 
   }, {
     title: "4. VulnsWeb - Web Security Platform",
@@ -43,7 +54,8 @@ const data = [
     github: "https://github.com/Rohit0265/VulnsWeb",
     live: "https://vulns-web.vercel.app/",
     image: "/bee.jpg",
-    video: "/VulnsWeb.webm",
+    thumb: "/p2.png",
+    video :"/VulnsWeb.webm"
 
   }
 ]
@@ -54,13 +66,18 @@ gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger)
 
 
 const Myprojects = () => {
+  const [hoveredVideo, setHoveredVideo] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
 
+  const hoverMe = (video: string) => {
+    setHoveredVideo(video);
+    setIsHovered(true);
+  };
 
-  const textRef = useRef();
-  const sectionRef = useRef();
-  const stack = useRef();
-  const pinProject = useRef();
-  const container = useRef(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const stack = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
 
@@ -103,7 +120,7 @@ const Myprojects = () => {
         start: "top top",
         end: () => "+=" + stackContainer.offsetHeight,
         scrub: true,
-        pin: text,              
+        pin: text,
         pinSpacing: false,
         anticipatePin: 1,
       }
@@ -113,21 +130,7 @@ const Myprojects = () => {
         ease: "none",
       });
 
-
-
-    const videos = document.querySelectorAll(".scroll-video");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    }, { threshold: 0.5 });
-    videos.forEach(video => observer.observe(video));
-
+    ScrollTrigger.refresh();
   })
 
 
@@ -189,14 +192,14 @@ const Myprojects = () => {
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 bg-gray-900 border border-white rounded-xl px-5 py-3 hover:bg-gray-700 transition"
                       >
-                      <Image
-                        src="/github.svg"
-                        alt="github"
-                        width={24}
-                        height={24}
-                        className="invert"
-                      />
-                      View On Github
+                        <Image
+                          src="/github.svg"
+                          alt="github"
+                          width={24}
+                          height={24}
+                          className="invert"
+                        />
+                        View On Github
                       </Link>
 
                       <Link
@@ -215,79 +218,79 @@ const Myprojects = () => {
                       className="w-[90%] md:w-[80%] rounded-xl blur-[5px]"
                       src={item.image}
                       alt="" />
-                    <div className="absolute w-[80%] md:w-[70%]">
-                      <video
-                        className="w-full border rounded-md"
-                        src={item.video}
-                        autoPlay
-                        playsInline
-                        muted
-                        loop />
+                    <div className="absolute w-[80%] md:w-[70%] group cursor-pointer overflow-hidden rounded-md border border-white/20">
+                      <img 
+                        onMouseEnter={()=>{hoverMe(item.video)}} 
+                        onMouseLeave={() => setIsHovered(false)}
+                        src={item.thumb} 
+                        className="w-full transition-transform duration-500 group-hover:scale-110" 
+                        alt="" 
+                      />
                     </div>
                   </div>
-                  </>
+                </>
               ) : (
-<div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col lg:flex-row">
 
-  {/* VIDEO SIDE */}
-  <div className="relative w-full lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
-    
-    <img
-      className="w-[95%] sm:w-[90%] md:w-[80%] rounded-xl blur-[5px]"
-      src={item.image}
-      alt=""
-    />
+                  {/* VIDEO SIDE */}
+                  <div className="relative w-full lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
 
-    <div className="absolute w-[85%] sm:w-[80%] md:w-[70%]">
-      <video
-        className="w-full border rounded-md"
-        src={item.video}
-        autoPlay
-        playsInline
-        muted
-        loop
-      />
-    </div>
+                    <img
+                      className="w-[95%] sm:w-[90%] md:w-[80%] rounded-xl blur-[5px]"
+                      src={item.image}
+                      alt=""
+                    />
 
-  </div>
+                    <div className="absolute w-[85%] sm:w-[80%] md:w-[70%] group cursor-pointer overflow-hidden rounded-md border border-white/20">
+                      <img 
+                        onMouseEnter={()=>{hoverMe(item.video)}} 
+                        onMouseLeave={() => setIsHovered(false)}
+                        src={item.thumb} 
+                        className="w-full transition-transform duration-500 group-hover:scale-110" 
+                        alt="" 
+                      />
+                    </div>
 
-  {/* TEXT SIDE */}
-  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-4 sm:px-6 lg:pl-20 text-left lg:text-left">
+                  </div>
 
-    <div>
-      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
-        {item.title}
-      </h1>
+                  {/* TEXT SIDE */}
+                  <div className="w-full lg:w-1/2 flex flex-col justify-center text-white px-4 sm:px-6 lg:pl-20 text-left lg:text-left">
 
-      <p className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-400 mb-8">
-        {item.description}
-      </p>
-    </div>
+                    <div>
+                      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
+                        {item.title}
+                      </h1>
 
-    {/* BUTTON */}
-    <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+                      <p className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-400 mb-8">
+                        {item.description}
+                      </p>
+                    </div>
 
-      <a
-        href={item.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-3 bg-gray-900 border border-white rounded-xl px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-700 transition"
-      >
-        <img src="/github.svg" className="w-5 h-5 sm:w-6 sm:h-6 invert" />
-        View GitHub
-      </a>
+                    {/* BUTTON */}
+                    <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
 
-    </div>
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 bg-gray-900 border border-white rounded-xl px-4 sm:px-5 py-2 sm:py-3 hover:bg-gray-700 transition"
+                      >
+                        <img src="/github.svg" className="w-5 h-5 sm:w-6 sm:h-6 invert" />
+                        View GitHub
+                      </a>
 
-  </div>
+                    </div>
 
-</div>
+                  </div>
+
+                </div>
               )}
               <br />
             </div>
           )
         })}
 
+      <Hover video={hoveredVideo} isVisible={isHovered} />
       </div>
     </div>
   )
