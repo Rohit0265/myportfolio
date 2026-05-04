@@ -23,15 +23,16 @@ interface Project {
 
 const data: Project[] = [
   {
-    title: "1. YOOM - Zoom Like Meeting Platform",
-    description: "This project is a fully functional Zoom Clone that enables users to create, join, and manage video meetings in real time. It features secure authentication, instant meeting links, and smooth video streaming powered by Stream’s real-time infrastructure.",
-    github: "https://github.com/Rohit0265/meeting",
-    live: "https://meeting-two-lac.vercel.app/",
-    image: "/photo2.jpg",
-    thumb: "/p2.png",
-    video: "/p2.webm"  
+    title: "1. VulnTest - Web Security Platform",
+    description: "VulnTest is a comprehensive web security platform designed to connect students with expert instructors. It features a wide range of courses, secure payment integration, and progress tracking tools to facilitate effective remote education.",
+    github: "https://github.com/Rohit0265/VulnsWeb",
+    live: "https://vulns-web.vercel.app/",
+    image: "/bee.jpg",
+    thumb: "/VulnsTest.png",
+    video :"/vedio.webm"
 
-  }, {
+  }
+  , {
     title: "2. Full Stack Ecommerce Web Application",
     description: "Developed a full-stack eCommerce web application with features like user authentication, product listing, cart management, and order processing. The platform provides a seamless shopping experience with a responsive interface and secure backend APIs.",
     github: "https://github.com/Rohit0265/Full-Stack-E-Commerce-Platform",
@@ -49,15 +50,14 @@ const data: Project[] = [
     thumb: "/Edemy.png",
     video :"/Edemy.webm"
 
-  }, {
-    title: "4. VulnsWeb - Web Security Platform",
-    description: "VulnsWeb is a comprehensive web security platform designed to connect students with expert instructors. It features a wide range of courses, secure payment integration, and progress tracking tools to facilitate effective remote education.",
-    github: "https://github.com/Rohit0265/VulnsWeb",
-    live: "https://vulns-web.vercel.app/",
-    image: "/bee.jpg",
+  },  {
+    title: "4. YOOM - Zoom Like Meeting Platform",
+    description: "This project is a fully functional Zoom Clone that enables users to create, join, and manage video meetings in real time. It features secure authentication, instant meeting links, and smooth video streaming powered by Stream’s real-time infrastructure.",
+    github: "https://github.com/Rohit0265/meeting",
+    live: "https://meeting-two-lac.vercel.app/",
+    image: "/photo2.jpg",
     thumb: "/p2.png",
-    video :"/VulnsWeb.webm"
-
+    video: "/p2.webm"  
   }
 ]
 
@@ -227,10 +227,15 @@ const Myprojects = () => {
                         className="w-full transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-                        <span className="bg-black/40 backdrop-blur-sm text-white/80 px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] border border-white/10 shadow-xl">
-                          Hover Me
-                        </span>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
+                        <div className="flex flex-col items-center gap-2 animate-float">
+                          <div className="bg-white/10 backdrop-blur-xl p-3 rounded-full border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                            <Eye className="w-5 h-5 text-white animate-pulse" />
+                          </div>
+                          <span className="bg-black/40 backdrop-blur-md text-white/90 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] border border-white/10 shadow-2xl">
+                            Hover Me
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -294,6 +299,13 @@ const Myprojects = () => {
                         <img src="/github.svg" className="w-5 h-5 sm:w-6 sm:h-6 invert" />
                         View GitHub
                       </a>
+                                            <Link
+                        href={item.live}
+                        target="_blank"
+                        className="px-6 py-3 bg-blue-600 rounded-xl text-white font-semibold hover:bg-blue-500 transition"
+                      >
+                        🚀 Live Demo
+                      </Link>
 
                     </div>
 
