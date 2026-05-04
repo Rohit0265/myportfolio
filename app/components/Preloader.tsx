@@ -37,7 +37,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         {/* Simple and elegant CSS spinner */}
         <div className="relative w-12 h-12">
           <div className="absolute inset-0 border-4 border-white/10 rounded-full"></div>
-          <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+          <div className="absolute inset-0 border-4 border-white rounded-full border-t-transparent animate-spin"></div>
         </div>
         
         <span className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">
