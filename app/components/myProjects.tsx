@@ -45,7 +45,7 @@ const data: Project[] = [
     title: "3. Edemy - Online Learning Platform",
     description: "Edemy is a comprehensive online learning platform designed to connect students with expert instructors. It features a wide range of courses, secure payment integration, and progress tracking tools to facilitate effective remote education.",
     github: "https://github.com/Rohit0265/Edemy",
-    live: "https://edemy-one.vercel.app/",
+    live: "https://edmey-full-stack-lms-platform.vercel.app/",
     image: "/2.webp",
     thumb: "/Edemy.png",
     video :"/Edemy.webm"
