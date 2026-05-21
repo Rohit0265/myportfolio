@@ -4,7 +4,6 @@ Welcome to my personal portfolio website!
 🌐 Live Site: https://myportfolio-rsm.in
 
 This portfolio showcases my skills, projects, and experience as a developer.
-
 📌 About Me
 
 Hi, I'm Rohit Mathur 👋
