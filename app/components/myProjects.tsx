@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Hover from './Hover'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -63,8 +63,36 @@ const data: Project[] = [
 
 
 
-gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger)
+const LazyVideo = ({ src, className, ...props }: { src: string; className?: string; [key: string]: any }) => {
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => observer.disconnect();
+  }, [src]);
+
+  return (
+    <video
+      ref={ref}
+      src={inView ? src : undefined}
+      className={className}
+      preload="none"
+      {...props}
+    />
+  );
+};
 
 const Myprojects = () => {
   const [hoveredVideo, setHoveredVideo] = useState("");
@@ -88,8 +116,6 @@ const Myprojects = () => {
 
 
     panels.forEach((panel) => {
-      gsap.set(panel, { willChange: "transform, opacity" });
-
       gsap.fromTo(
         panel, {
         scale: 1, opacity: 1
@@ -102,9 +128,16 @@ const Myprojects = () => {
             trigger: panel,
             start: "top-=150 top",
             end: "bottom top",
-            scrub: 1.5,
+            scrub: 0.8,
             pin: true,
             pinSpacing: false,
+            onToggle: (self) => {
+              if (self.isActive) {
+                gsap.set(panel, { willChange: "transform, opacity" });
+              } else {
+                gsap.set(panel, { clearProps: "willChange" });
+              }
+            }
           }
         }
       )
@@ -228,12 +261,12 @@ const Myprojects = () => {
                         alt="" 
                       />
                       {/* Mobile Video */}
-                      <video
+                      <LazyVideo
                         src={item.video}
-                        autoPlay
                         muted
                         loop
                         playsInline
+                        controls
                         className="w-full block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
@@ -270,12 +303,12 @@ const Myprojects = () => {
                         alt="" 
                       />
                       {/* Mobile Video */}
-                      <video
+                      <LazyVideo
                         src={item.video}
-                        autoPlay
                         muted
                         loop
                         playsInline
+                        controls
                         className="w-full block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">

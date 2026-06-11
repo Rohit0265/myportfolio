@@ -5,13 +5,12 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import Image from "next/image";
 import Myprojects from "./myProjects";
 import MYDETAILS from "./Mystack";
 import ContactForm from "./ContactUs";
 import Fotter from "./Fotter";
 import Mylandpage from "./Landingpage";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
 const MyIntro = () => {
   const container = useRef(null);
@@ -26,18 +25,23 @@ const MyIntro = () => {
     // });
 
     if (window.innerWidth <= 764) return;
-const tl = gsap.timeline({
-
-
-  scrollTrigger: {
-    trigger: ".test",
-    start: "top top",
-    end: "+=200%",
-    scrub: 1,
-    pin: true,
-    pinSpacing: true,
-  },
-});
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".test",
+        start: "top top",
+        end: "+=200%",
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        onToggle: (self) => {
+          if (self.isActive) {
+            gsap.set([".test img", ".blur-overlay"], { willChange: "transform, opacity" });
+          } else {
+            gsap.set([".test img", ".blur-overlay"], { clearProps: "willChange" });
+          }
+        }
+      },
+    });
 
     // 1️⃣ Small pause
     // tl.to({}, { duration: 0.5 });
@@ -74,12 +78,16 @@ const tl = gsap.timeline({
 
 
 <div className="test w-full h-screen relative overflow-hidden bg-black">
-  <img
-    className="w-full h-full object-cover transform-gpu will-change-transform"
+  <Image
     src="https://images.pexels.com/photos/316681/pexels-photo-316681.jpeg"
+    alt="Pexels Hero Image"
+    fill
+    priority
+    className="object-cover transform-gpu"
+    sizes="100vw"
   />
 
-  <div className="blur-overlay absolute inset-0 backdrop-blur-[20px] opacity-0 pointer-events-none z-10" />
+  <div className="blur-overlay absolute inset-0 bg-black/60 opacity-0 pointer-events-none z-10" />
 
   <h1 className="head absolute z-50 text-gray-300/90
     text-[70px] sm:text-[100px] md:text-[150px] lg:text-[200px]
