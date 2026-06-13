@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import Hover from './Hover'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -60,39 +60,6 @@ const data: Project[] = [
     video: "/p2.webm"  
   }
 ]
-
-
-
-const LazyVideo = ({ src, className, ...props }: { src: string; className?: string; [key: string]: any }) => {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px" }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => observer.disconnect();
-  }, [src]);
-
-  return (
-    <video
-      ref={ref}
-      src={inView ? src : undefined}
-      className={className}
-      preload="none"
-      {...props}
-    />
-  );
-};
 
 const Myprojects = () => {
   const [hoveredVideo, setHoveredVideo] = useState("");
@@ -261,12 +228,12 @@ const Myprojects = () => {
                         alt="" 
                       />
                       {/* Mobile Video */}
-                      <LazyVideo
+                      <video
                         src={item.video}
+                        autoPlay
                         muted
                         loop
                         playsInline
-                        controls
                         className="w-full block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
@@ -303,12 +270,12 @@ const Myprojects = () => {
                         alt="" 
                       />
                       {/* Mobile Video */}
-                      <LazyVideo
+                      <video
                         src={item.video}
+                        autoPlay
                         muted
                         loop
                         playsInline
-                        controls
                         className="w-full block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
