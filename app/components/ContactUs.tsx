@@ -56,7 +56,7 @@ const ContactForm = () => {
     <motion.div
       ref={ref}
       style={{ scale }}
-      className="min-h-screen bg-black text-white py-20 px-6 flex flex-col items-center"
+      className="min-h-screen bg-black text-white py-20 px-6 flex flex-col items-center overflow-x-hidden w-full"
     >
 
       {/* Heading */}

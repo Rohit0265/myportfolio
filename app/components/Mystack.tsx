@@ -19,7 +19,7 @@ const tech = [
 const MYDETAILS = () => {
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-black">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-black overflow-x-hidden w-full">
 
       {/* LEFT SIDE */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16">

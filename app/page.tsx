@@ -29,7 +29,7 @@ const App = () => {
   return (
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <div id="smooth-wrapper">
+      <div id="smooth-wrapper" className="overflow-x-hidden w-full">
         <div id="smooth-content">
           <MyIntro />
         </div>

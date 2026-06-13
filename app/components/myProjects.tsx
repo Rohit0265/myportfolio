@@ -250,7 +250,7 @@ const Myprojects = () => {
                   </div>
                 </>
               ) : (
-                <div className="flex flex-col lg:flex-row">
+                <>
 
                   {/* VIDEO SIDE */}
                   <div className="relative w-full lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
@@ -329,7 +329,7 @@ const Myprojects = () => {
 
                   </div>
 
-                </div>
+                </>
               )}
               <br />
             </div>

@@ -16,7 +16,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         duration: 0.6,
         ease: "power2.inOut",
         onComplete: () => {
-          document.body.style.overflow = "auto";
+          document.body.style.overflow = "";
           onComplete();
         },
       });
@@ -24,7 +24,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
 
     return () => {
       clearTimeout(timer);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, [onComplete]);
 
