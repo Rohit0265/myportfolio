@@ -23,13 +23,13 @@ interface Project {
 
 const data: Project[] = [
   {
-    title: "1. VulnTest - Web Security Platform",
-    description: "VulnTest is a comprehensive web security platform designed to connect students with expert instructors. It features a wide range of courses, secure payment integration, and progress tracking tools to facilitate effective remote education.",
-    github: "https://github.com/Rohit0265/VulnsWeb",
-    live: "https://vulns-web.vercel.app/",
+    title: "1. Prep AI - AI Powered Interview Preparation",
+    description: "Prep AI is an AI-powered interview preparation platform designed to help students and professionals get ready for job interviews. It features AI-generated mock interviews with real-time feedback, personalized interview question recommendations, resume analysis, and interview coaching to enhance candidates' interview performance.",
+    github: "https://github.com/Rohit0265/genai-interview-project",
+    live: "https://genai-interview-project-guhz.vercel.app/",
     image: "/bee.jpg",
-    thumb: "/VulnsTest.png",
-    video :"/vedio.webm"
+    thumb: "/prepai.png",
+    video :"/prep_ai.mp4"
 
   }
   , {
@@ -216,15 +216,15 @@ const Myprojects = () => {
                   </div>
                   <div className="relative w-full lg:w-1/2 pt-[30px] flex justify-center items-center order-1 lg:order-2">
                     <img
-                      className="w-[90%] md:w-[80%] rounded-xl blur-[5px]"
+                      className="w-[90%] md:w-[80%] aspect-video object-cover rounded-xl blur-[5px]"
                       src={item.image}
                       alt="" />
-                    <div className="absolute w-[80%] md:w-[70%] group cursor-pointer overflow-hidden rounded-md border border-white/20">
+                    <div className="absolute w-[80%] md:w-[70%] aspect-video group cursor-pointer overflow-hidden rounded-md border border-white/20">
                       <img 
                         onMouseEnter={()=>{hoverMe(item.video)}} 
                         onMouseLeave={() => setIsHovered(false)}
                         src={item.thumb} 
-                        className="w-full hidden lg:block transition-transform duration-500 group-hover:scale-110" 
+                        className="w-full h-full object-cover hidden lg:block transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
                       {/* Mobile Video */}
@@ -234,7 +234,7 @@ const Myprojects = () => {
                         muted
                         loop
                         playsInline
-                        className="w-full block lg:hidden"
+                        className="w-full h-full object-cover block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
                         <div className="flex flex-col items-center gap-2 animate-float">
@@ -256,17 +256,17 @@ const Myprojects = () => {
                   <div className="relative w-full lg:w-1/2 flex justify-center items-center mb-10 lg:mb-0">
 
                     <img
-                      className="w-[95%] sm:w-[90%] md:w-[80%] rounded-xl blur-[5px]"
+                      className="w-[95%] sm:w-[90%] md:w-[80%] aspect-video object-cover rounded-xl blur-[5px]"
                       src={item.image}
                       alt=""
                     />
 
-                    <div className="absolute w-[85%] sm:w-[80%] md:w-[70%] group cursor-pointer overflow-hidden rounded-md border border-white/20">
+                    <div className="absolute w-[85%] sm:w-[80%] md:w-[70%] aspect-video group cursor-pointer overflow-hidden rounded-md border border-white/20">
                       <img 
                         onMouseEnter={()=>{hoverMe(item.video)}} 
                         onMouseLeave={() => setIsHovered(false)}
                         src={item.thumb} 
-                        className="w-full hidden lg:block transition-transform duration-500 group-hover:scale-110" 
+                        className="w-full h-full object-cover hidden lg:block transition-transform duration-500 group-hover:scale-110" 
                         alt="" 
                       />
                       {/* Mobile Video */}
@@ -276,7 +276,7 @@ const Myprojects = () => {
                         muted
                         loop
                         playsInline
-                        className="w-full block lg:hidden"
+                        className="w-full h-full object-cover block lg:hidden"
                       />
                       <div className="absolute inset-0 hidden lg:flex items-center justify-center opacity-100 group-hover:opacity-0 transition-all duration-500 pointer-events-none">
                         <div className="flex flex-col items-center gap-2 animate-float">
