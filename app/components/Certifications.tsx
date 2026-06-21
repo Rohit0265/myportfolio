@@ -8,7 +8,7 @@ const Certifications = () => {
       certName: "AWS CLOUD PRACTITIONER"
     },
     {
-      companyLogo: "",
+      companyLogo: "/cisco.png",
       companyName: "Cisco Networking Academy",
       certName: "Cisco netwrok"
     },
@@ -37,7 +37,7 @@ const Certifications = () => {
                 <img 
                   src={cert.companyLogo} 
                   alt={cert.companyName} 
-                  className="h-16 w-16 object-contain"
+                  className=""
                 />
               </div>
               
