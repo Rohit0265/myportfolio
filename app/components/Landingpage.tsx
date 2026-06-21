@@ -76,7 +76,7 @@ const Mylandpage = () => {
 
             <div className="flex justify-center mb-8">
               <a
-                href="/resume.pdf"
+                href="/my-resume.pdf"
                 download
                 className="px-6 py-3 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition"
               >
