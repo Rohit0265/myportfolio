@@ -11,6 +11,7 @@ import MYDETAILS from "./Mystack";
 import ContactForm from "./ContactUs";
 import Fotter from "./Fotter";
 import Mylandpage from "./Landingpage";
+import Certifications from "./Certifications";
 
 const MyIntro = () => {
   const container = useRef(null);
@@ -77,30 +78,31 @@ const MyIntro = () => {
     <div ref={container}>
 
 
-<div className="test w-full h-screen relative overflow-hidden bg-black">
-  <Image
-    src="https://images.pexels.com/photos/316681/pexels-photo-316681.jpeg"
-    alt="Pexels Hero Image"
-    fill
-    priority
-    className="object-cover transform-gpu"
-    sizes="100vw"
-  />
+      <div className="test w-full h-screen relative overflow-hidden bg-black">
+        <Image
+          src="https://images.pexels.com/photos/316681/pexels-photo-316681.jpeg"
+          alt="Pexels Hero Image"
+          fill
+          priority
+          className="object-cover transform-gpu"
+          sizes="100vw"
+        />
 
-  <div className="blur-overlay absolute inset-0 bg-black/60 opacity-0 pointer-events-none z-10" />
+        <div className="blur-overlay absolute inset-0 bg-black/60 opacity-0 pointer-events-none z-10" />
 
-  <h1 className="head absolute z-50 text-gray-300/90
+        <h1 className="head absolute z-50 text-gray-300/90
     text-[70px] sm:text-[100px] md:text-[150px] lg:text-[200px]
     left-1/2 top-2/5 -translate-x-1/2 -translate-y-1/2">
-    𝓗𝓔𝓛𝓛𝓞
-  </h1>
-</div>
+          𝓗𝓔𝓛𝓛𝓞
+        </h1>
+      </div>
 
       {/* Extra space to allow scrolling */}
       <Mylandpage />
       <Myprojects />
       <div className="hidden md:block md:h-[500px]  bg-black" />
       <MYDETAILS />
+      <Certifications />
       {/* <div className="h-[200px]" /> */}
       <ContactForm />
       <Fotter />
