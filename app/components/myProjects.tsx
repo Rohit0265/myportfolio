@@ -35,8 +35,8 @@ const data: Project[] = [
   , {
     title: "2. Full Stack Ecommerce Web Application",
     description: "Developed a full-stack eCommerce web application with features like user authentication, product listing, cart management, and order processing. The platform provides a seamless shopping experience with a responsive interface and secure backend APIs.",
-    github: "https://github.com/Rohit0265/Full-Stack-E-Commerce-Platform",
-    live: "https://full-stack-e-commerce-platform-one.vercel.app/",
+    github: "https://github.com/Rohit0265/ecommerce",
+    live: "https://ecommerce-client-six-amber.vercel.app/",
     image: "/be.jpg",
     thumb: "/Ecomm.png",
     video: "/Ecomm.webm"  
