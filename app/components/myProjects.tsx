@@ -337,7 +337,7 @@ const Myprojects = () => {
         })}
 
       <Hover video={hoveredVideo} isVisible={isHovered} />
-      <div className='w-full h-[50vh] bg-black'></div>
+      <div className='w-full hidden md:block md:h-[50vh] bg-black'></div>
       </div>
     </div>
   )
